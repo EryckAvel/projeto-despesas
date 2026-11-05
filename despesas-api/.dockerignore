@@ -1,0 +1,9 @@
+target
+data
+.idea
+.junie
+.git
+.gitignore
+.gitattributes
+*.md
+docs
