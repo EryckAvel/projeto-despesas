@@ -1,0 +1,48 @@
+<div class="min-h-screen bg-[#0D0D0D] flex items-center justify-center p-4">
+    <hlm-card class="w-full max-w-90 rounded-2xl px-4 py-6 bg-[#1A1A1A]">
+        <hlm-card-header>
+            <h1 class="text-center text-2xl text-white font-semibold">Bem-vindo de volta</h1>
+            <p class="text-center text-sm text-[#71717A]">Entre com sua conta para continuar</p>
+        </hlm-card-header>
+        <div hlmCardContent class="mt-2">
+            <form #formLogin="ngForm" (ngSubmit)="login(formLogin)" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-2">
+                    <label hlmLabel for="email" class="text-[#71717A] text-sm">Email</label>
+                    <input hlmInput
+                        id="email"
+                        type="text"
+                        name="email"
+                        #email="ngModel"
+                        required
+                        [(ngModel)]="loginDados.email"
+                        placeholder="Insira seu email"
+                        class="text-white border-[#2A2A2A] bg-[#0D0D0D]"
+                    >
+                </div>
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center">
+                        <label hlmLabel for="senha" class="text-[#71717A] text-sm">Senha</label>
+                        <a routerLink="/alterar-senha" class="text-[#71717A] text-sm hover:text-white">Esqueceu sua senha?</a>
+                    </div>
+                    <input hlmInput
+                        id="senha"
+                        type="text"
+                        name="senha"
+                        #senha="ngModel"
+                        required
+                        [(ngModel)]="loginDados.senha"
+                        placeholder="Insira seu senha"
+                        class="text-white border-[#2A2A2A] bg-[#0D0D0D]"
+                    >
+                </div>
+                <button hlmBtn type="submit" size="lg" class="w-full bg-white text-[#0D0D0D] hover:bg-[#E4E4E7]">Entrar</button>
+                <p class="text-center text-[#71717A] text-sm font-semibold">
+                    Não tem conta? 
+                    <a href="/cadastro" class="font-semibold text-[#FFFFFF] hover:text-gray-400 transition-colors">
+                        Cadastre-se
+                    </a>
+                </p>
+            </form>
+        </div>
+    </hlm-card>
+</div>

@@ -1,0 +1,39 @@
+<div class="min-h-screen bg-[#0D0D0D] flex items-center justify-center p-4">
+    <hlm-card class="w-full max-w-90 rounded-2xl px-4 py-6 bg-[#1A1A1A]">
+        <hlm-card-header>
+            <h1 class="text-center text-2xl text-white font-semibold">Alterar Senha</h1>
+            <p class="text-center text-sm text-[#71717A]">Insira as informações pedidas</p>
+        </hlm-card-header>
+        <div hlmCardContent class="mt-2">
+            <form #formLogin="ngForm" (ngSubmit)="alterarSenha()" class="flex flex-col gap-4">
+                 <div class="flex flex-col gap-2">
+                    <label hlmLabel for="email" class="text-[#71717A] text-sm">Email</label>
+                    <input hlmInput
+                        id="email"
+                        type="text"
+                        name="email"
+                        #email="ngModel"
+                        required
+                        [(ngModel)]="resetRequest.email"
+                        placeholder="Insira seu email"
+                        class="text-white border-[#2A2A2A] bg-[#0D0D0D]"
+                    >
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label hlmLabel for="novaSenha" class="text-[#71717A] text-sm">Nova Senha</label>
+                    <input hlmInput
+                        id="novaSenha"
+                        type="text"
+                        name="novaSenha"
+                        #novaSenha="ngModel"
+                        required
+                        [(ngModel)]="resetRequest.novaSenha"
+                        placeholder="Insira sua nova senha"
+                        class="text-white border-[#2A2A2A] bg-[#0D0D0D]"
+                    >
+                </div>
+                <button hlmBtn type="submit" size="lg" class="P-3 w-full bg-white text-[#0D0D0D] hover:bg-[#E4E4E7]">Alterar Senha</button>
+            </form>
+        </div>
+    </hlm-card>
+</div>
