@@ -6,7 +6,7 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { toast } from '@spartan-ng/brain/sonner';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ResetSenhaRequest } from './resetSenhaRequest';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
@@ -25,7 +25,14 @@ export class ResetSenha {
   private router = inject(Router);
   private authService = inject(AuthService)
 
-  alterarSenha(){
+  alterarSenha(form: NgForm){
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      toast.warning('Preencha todos os campos corretamente.', {
+        duration: 2000
+      });
+      return; // não chama a API
+    }
     console.log(this.resetRequest);
     this.authService.alterarSenha(this.resetRequest).subscribe({
       next: (res) => {

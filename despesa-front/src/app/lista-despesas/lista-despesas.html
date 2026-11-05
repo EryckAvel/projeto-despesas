@@ -32,9 +32,26 @@
                                 <button title="Editar" class="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-[#2A2A2A]" (click)="atualizar(despesa.id)">
                                     <ng-icon name="lucidePencil" size="16" />
                                 </button>
-                                <button title="Excluir" class="p-1.5 rounded-lg text-red-400 hover:bg-red-500/20" (click)="excluir(despesa.id)">
-                                    <ng-icon name="lucideTrash2" size="16" />
-                                </button>
+                                <hlm-alert-dialog>
+                                    <button hlmAlertDialogTrigger hlmBtn title="Excluir" class="p-1.5 rounded-lg text-red-400 hover:bg-red-500/20">
+                                        <ng-icon name="lucideTrash2" size="16" />
+                                    </button>
+                                    <hlm-alert-dialog-content *hlmAlertDialogPortal="let ctx" size="sm">
+                                        <hlm-alert-dialog-header>
+                                            <hlm-alert-dialog-media class="bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive">
+                                            <ng-icon name="lucideTrash2" />
+                                            </hlm-alert-dialog-media>
+                                            <h2 hlmAlertDialogTitle>Deletar Despesa?</h2>
+                                            <p hlmAlertDialogDescription>
+                                                Deseja realmente deletar essa despesa?
+                                            </p>
+                                        </hlm-alert-dialog-header>
+                                        <hlm-alert-dialog-footer>
+                                            <button hlmAlertDialogCancel>cancelar</button>
+                                            <button hlmAlertDialogAction variant="destructive" (click)="excluir(despesa.id)">Deletar</button>
+                                        </hlm-alert-dialog-footer>
+                                    </hlm-alert-dialog-content>
+                                </hlm-alert-dialog>
                             </div>
                         </td>
                     </tr>

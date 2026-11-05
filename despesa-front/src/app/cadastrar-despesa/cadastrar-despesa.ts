@@ -45,9 +45,14 @@ export class CadastrarDespesa implements OnInit{
     }
   }
 
-  salvar(){
-    console.log(this.despesa())
-    console.log(this.editando)
+  salvar(form: NgForm){
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      toast.warning('Preencha todos os campos corretamente.', {
+        duration: 2000
+      });
+      return;
+    }
     if(this.editando){
       this.atualizar();
     }else{
@@ -62,9 +67,16 @@ export class CadastrarDespesa implements OnInit{
     };
     this.despesaService.cadastrarDespesas(payload).subscribe({
       next: (res) => {
-         this.router.navigate(['/despesa/listar'])
+        toast.success('Despesa cadastrada com sucesso!', {
+          duration: 3000,
+        });
+        this.router.navigate(['/despesa/listar'])
       },
-      error: (err) => console.error(err)
+      error: (err : HttpErrorResponse) => {
+        toast.error(err.error?.message ?? 'Falha em cadastrar despesa!', {
+          duration: 3000
+        })
+      }
     })
   }
 
@@ -75,9 +87,16 @@ export class CadastrarDespesa implements OnInit{
     };
     this.despesaService.atualizarDespesa(payload, this.id).subscribe({
       next: (res) => {
-         this.router.navigate(['/despesa/listar'])
+        toast.success('Despesa atualizada com sucesso!', {
+          duration: 3000,
+        });
+        this.router.navigate(['/despesa/listar'])
       },
-      error: (err) => console.error(err)
+      error: (err : HttpErrorResponse) => {          
+        toast.error(err.error?.message ?? 'Falha em atualizar despesa!', {
+          duration: 3000
+        })
+      }
     })
   }
 

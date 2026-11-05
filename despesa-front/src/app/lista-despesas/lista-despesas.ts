@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 
 import { HlmTableImports } from '@spartan-ng/helm/table';
+import { HlmAlertDialogImports } from '@spartan-ng/helm/alert-dialog';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucidePencil, lucidePlus, lucideTrash2 } from '@ng-icons/lucide';
 
 @Component({
-  imports: [CurrencyPipe, DatePipe, HlmTableImports, NgIcon],
+  imports: [CurrencyPipe, DatePipe, HlmTableImports, NgIcon, HlmAlertDialogImports],
   providers: [provideIcons({ lucidePlus, lucidePencil, lucideTrash2 })],
   selector: 'app-lista-despesas',
   styleUrl: './lista-despesas.css',
@@ -38,7 +39,7 @@ export class ListaDespesas implements OnInit{
   }
 
   cadastrar(){
-    this.router.navigate(['/despesa/cadastrar']);
+    this.router.navigate(['/despesa/cadastro']);
   }
 
   atualizar(iddespesa: number){

@@ -13,13 +13,12 @@ export const routes: Routes = [
         pathMatch: 'full' 
     },
     {
-        path: 'login',
-        component: Login
+        path: 'cadastro',
+        component: Cadastro
     },
     {
-        path: 'cadastro',
-        component: Cadastro,
-        pathMatch: 'full' 
+        path: 'login',
+        component: Login
     },
     {
         path: 'alterar-senha',
@@ -32,6 +31,7 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: 'lista', pathMatch: 'full' },
             { path: 'listar', component: ListaDespesas },
+            { path: 'cadastro', component: CadastrarDespesa },
             { path: ':id/editar', component: CadastrarDespesa }
         ]
     }

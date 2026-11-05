@@ -5,7 +5,7 @@
             <p class="text-center text-sm text-[#71717A]">Insira as informações pedidas</p>
         </hlm-card-header>
         <div hlmCardContent class="mt-2">
-            <form #formLogin="ngForm" (ngSubmit)="alterarSenha()" class="flex flex-col gap-4">
+            <form #formResetSenha="ngForm" (ngSubmit)="alterarSenha(formResetSenha)" class="flex flex-col gap-4">
                  <div class="flex flex-col gap-2">
                     <label hlmLabel for="email" class="text-[#71717A] text-sm">Email</label>
                     <input hlmInput

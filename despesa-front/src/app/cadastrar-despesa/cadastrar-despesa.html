@@ -5,7 +5,7 @@
             <p class="text-center text-sm text-[#71717A]">Preencha os campos abaixo</p>
         </hlm-card-header>  
         <div hlmCardContent class="mt-2">
-            <form #formDespesa="ngForm" (ngSubmit)="salvar()" class="flex flex-col gap-2">
+            <form #formDespesa="ngForm" (ngSubmit)="salvar(formDespesa)" class="flex flex-col gap-2">
                 <div class="flex flex-col gap-2 mt-3">
                     <label hlmLabel for="descricao" class="text-[#71717A] text-sm">Descrição</label>
                     <input hlmInput
