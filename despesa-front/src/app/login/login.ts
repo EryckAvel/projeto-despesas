@@ -32,7 +32,6 @@ export class Login {
   private tokenService = inject(TokenService);
 
   login(form: NgForm) {
-    console.log(this.loginDados);
     if (form.invalid) {
       form.control.markAllAsTouched();
       toast.warning('Preencha todos os campos corretamente.', {
@@ -42,7 +41,6 @@ export class Login {
     }
     this.authService.login(this.loginDados).subscribe( {
       next: (res) => {
-        console.log(res)
         this.tokenService.salvar(res.token);
         this.router.navigate(['/despesa/listar'])
         toast.success('Login realizado com sucesso!', {

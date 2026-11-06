@@ -45,7 +45,6 @@ export class Cadastro {
         this.router.navigate(['/login'])
       },
       error: (err: HttpErrorResponse) => {
-        console.log(err);
         toast.error(err.error?.message ?? 'Falha no Cadastro!', {
           duration: 3000,
         });

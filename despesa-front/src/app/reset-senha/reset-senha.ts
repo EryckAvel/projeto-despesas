@@ -38,7 +38,6 @@ export class ResetSenha {
       });
       return; // não chama a API
     }
-    console.log(this.resetRequest);
     this.authService.alterarSenha(this.resetRequest).subscribe({
       next: (res) => {
         toast.success('Senha alterada com sucesso!', {
