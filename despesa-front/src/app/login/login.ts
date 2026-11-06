@@ -12,9 +12,12 @@ import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { toast } from '@spartan-ng/brain/sonner';
 
+import { NgIcon, provideIcons} from '@ng-icons/core';
+import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
 
 @Component({
-  imports: [FormsModule, HlmInputImports, HlmFieldImports, HlmCardImports, HlmLabelImports, HlmButtonImports, RouterLink],
+  imports: [FormsModule, HlmInputImports, HlmFieldImports, HlmCardImports, HlmLabelImports, HlmButtonImports, RouterLink, NgIcon],
+  providers: [provideIcons({ lucideEye, lucideEyeOff })],
   selector: 'app-login',
   styleUrl: './login.css',
   templateUrl: './login.html',

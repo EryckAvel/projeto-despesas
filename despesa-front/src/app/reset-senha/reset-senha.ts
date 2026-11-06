@@ -10,10 +10,15 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ResetSenhaRequest } from './resetSenhaRequest';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse} from '@angular/common/http';
+
+
+import { NgIcon, provideIcons} from '@ng-icons/core';
+import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
 
 @Component({
-  imports: [FormsModule, HlmCardImports, HlmFieldImports, HlmInputImports, HlmLabelImports, HlmButtonImports],
+  imports: [FormsModule, HlmCardImports, HlmFieldImports, HlmInputImports, HlmLabelImports, HlmButtonImports, NgIcon],
+  providers: [provideIcons({ lucideEye, lucideEyeOff })],
   selector: 'app-reset-senha',
   styleUrl: './reset-senha.css',
   templateUrl: './reset-senha.html',

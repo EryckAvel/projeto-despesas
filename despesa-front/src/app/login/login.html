@@ -24,16 +24,25 @@
                         <label hlmLabel for="senha" class="text-[#71717A] text-sm">Senha</label>
                         <a routerLink="/alterar-senha" class="text-[#71717A] text-sm hover:text-white">Esqueceu sua senha?</a>
                     </div>
-                    <input hlmInput
-                        id="senha"
-                        type="text"
-                        name="senha"
-                        #senha="ngModel"
-                        required
-                        [(ngModel)]="loginDados.senha"
-                        placeholder="Insira seu senha"
-                        class="text-white border-[#2A2A2A] bg-[#0D0D0D]"
-                    >
+                    <div class="relative">
+                        <input hlmInput
+                            #campoSenha
+                            id="senha"
+                            type="password"
+                            name="senha"
+                            #senha="ngModel"
+                            required
+                            [(ngModel)]="loginDados.senha"
+                            placeholder="Insira seu senha"
+                            class="text-white border-[#2A2A2A] bg-[#0D0D0D]"
+                        >
+                        <button type="button"
+                            (click)="campoSenha.type = campoSenha.type === 'password' ? 'text' : 'password'"
+                            [attr.aria-label]="campoSenha.type === 'password' ? 'Mostrar senha' : 'Ocultar senha'"
+                            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white">
+                            <ng-icon [name]="campoSenha.type === 'password' ? 'lucideEye' : 'lucideEyeOff'" />
+                        </button>
+                    </div>
                 </div>
                 <button hlmBtn type="submit" size="lg" class="w-full bg-white text-[#0D0D0D] hover:bg-[#E4E4E7]">Entrar</button>
                 <p class="text-center text-[#71717A] text-sm font-semibold">

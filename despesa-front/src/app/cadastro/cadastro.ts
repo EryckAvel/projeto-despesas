@@ -12,8 +12,12 @@ import { toast } from '@spartan-ng/brain/sonner';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 
+import { NgIcon, provideIcons} from '@ng-icons/core';
+import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
+
 @Component({
-  imports: [FormsModule, HlmCardImports,HlmFieldImports, HlmInputImports,HlmLabelImports, HlmButtonImports],
+  imports: [FormsModule, HlmCardImports,HlmFieldImports, HlmInputImports,HlmLabelImports, HlmButtonImports, NgIcon],
+  providers: [provideIcons({ lucideEye, lucideEyeOff })],
   selector: 'app-cadastro',
   styleUrl: './cadastro.css',
   templateUrl: './cadastro.html',
