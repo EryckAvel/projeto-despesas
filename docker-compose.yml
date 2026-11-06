@@ -1,7 +1,7 @@
 services:
 
   api:
-    env_file: .env-production
+    env_file: .env
     build: ./despesas-api
     container_name: api
     expose:
