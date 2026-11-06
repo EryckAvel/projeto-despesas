@@ -16,11 +16,11 @@ spring:
       ddl-auto: update
   h2:
     console:
-      enabled: true
+      enabled: ${H2_CONSOLE_ENABLED:false}
       path: /h2-console
 
 jwt:
-  secret: ${JWT_SECRET:xtqSCYLcWeXI72+nyrsOprTflg2TvY5weM2SyZEVyXc=}
+  secret: ${JWT_SECRET}
   expiration: ${JWT_EXPIRATION:30m}
 
 logging:
