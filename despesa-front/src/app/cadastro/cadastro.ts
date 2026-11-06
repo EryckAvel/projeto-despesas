@@ -50,7 +50,6 @@ export class Cadastro {
         });
       }
     })
-    console.log(this.cadastro);
   }
 
   invalido(campo: NgModel, form: NgForm): boolean {

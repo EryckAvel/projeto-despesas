@@ -9,6 +9,7 @@ import { HlmAlertDialogImports } from '@spartan-ng/helm/alert-dialog';
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucidePencil, lucidePlus, lucideTrash2 } from '@ng-icons/lucide';
+import { toast } from '@spartan-ng/brain/sonner';
 
 @Component({
   imports: [CurrencyPipe, DatePipe, HlmTableImports, NgIcon, HlmAlertDialogImports],
@@ -34,7 +35,11 @@ export class ListaDespesas implements OnInit{
   ngOnInit(): void {
     this.despesaService.listarDespesas().subscribe({
       next: (res) => this.despesas.set(res),
-      error: (err) => console.error(err)
+      error: (err) => {
+        toast.error(err.error?.message ?? 'Falha ao listar despesas!', {
+          duration: 3000,
+        });
+      }
     })
   }
 
@@ -51,10 +56,18 @@ export class ListaDespesas implements OnInit{
       next: () => {
         this.despesaService.listarDespesas().subscribe({
           next: (res) => this.despesas.set(res),
-          error: (err) => console.error(err)
+          error: (err) => {
+            toast.error(err.error?.message ?? 'Falha ao listar despesas!', {
+              duration: 3000,
+            });
+          }
         })  
       },
-      error: (err) => console.error(err)
+      error: (err) =>{
+        toast.error(err.error?.message ?? 'Falha deletar despesa!', {
+          duration: 3000,
+        });
+      }
     })
   }
 
